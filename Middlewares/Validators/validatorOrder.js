@@ -11,7 +11,6 @@ module.exports = async (req, res, next) => {
       req.body.comment.length >= 0 &&
       req.body.comment.length <= 300 &&
       req.body.deliveryTimestamp &&
-      req.body.slot &&
       typeof req.body.items === "object" &&
       req.body.items.length >= 1
     ) {

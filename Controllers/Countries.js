@@ -1,5 +1,6 @@
 const Countries = require("../Models/Countries");
 const Teams = require("../Models/Teams");
+const Products = require("../Models/Products");
 const moment = require("moment");
 
 exports.createOneCountry = async (req, res) => {
@@ -60,10 +61,10 @@ exports.getAllCountries = async (req, res) => {
 
 exports.getOneCountry = async (req, res) => {
   try {
-    const country = await Countries.findOne({ idCountry: req.params.idCountry });
-    const teams = await Teams.find({ idCountry: req.params.idCountry });
+    const country = await Countries.find({ idCountry: req.params.idCountry });
+    const products = await Products.find({ idCountry: req.params.idCountry });
 
-    return res.status(200).json({ find: true, country: country, result: teams,});
+    return res.status(200).json({ find: true, country: country[0], result: products,});
   } catch (error) {
     return res.status(500).json({ error: true });
   }

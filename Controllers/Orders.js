@@ -22,6 +22,7 @@ function financial(x) {
 
 exports.createOrder = async (req, res) => {
   try {
+    console.log("order");
     const now = moment();
     const toInsert = {
       idCustomer: req.customer.idCustomer,
